@@ -8,18 +8,17 @@ import sys
 
 def subarray(arr, n):
     res = arr[0]
-    curr = [-1 for i in range(n)]
-    curr[0] = arr[0]
+    curr = arr[0]
     for i in range(1, n):
-        curr[i] = max(curr[i-1]+arr[i], arr[i])
-        res = max(curr[i], res)
+        curr = max(curr+arr[i], arr[i])
+        res = max(curr, res)
     return res
 
 def subsequence(arr, n):
     res = arr[0]
     curr = arr[0]
     for i in range(1, n):
-        curr = max(curr, curr+arr[i])
+        curr = max(curr, arr[i]+curr)
         if(curr < arr[i]):
             curr = arr[i]
         res = max(curr, res)
@@ -47,4 +46,3 @@ if __name__ == '__main__':
         fptr.write('\n')
 
     fptr.close()
-
