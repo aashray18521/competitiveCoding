@@ -10,20 +10,16 @@ import sys
 
 # Complete the minimumBribes function below.
 def minimumBribes(q):
-    bribe = 0
-    chaotic = False;
     n = len(q)
+    bribe = 0
     for i in range(n):
-        if(q[i]-(i+1) > 2):
-            chaotic = True
-            break
+        if(q[i] - (i+1) > 2):
+            print("Too chaotic")
+            return
         for j in range(max(0, q[i]-2), i):
-            if (q[j] > q[i]) :
+            if(q[j] > q[i]):
                 bribe += 1
-    if(chaotic):
-        print("Too chaotic")
-    else:
-        print(bribe)
+    print(bribe)
     return
 
 if __name__ == '__main__':
